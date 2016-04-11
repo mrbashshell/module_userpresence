@@ -10,4 +10,4 @@ $lang["modul_titel"]                     = "Anwesenheitsregister";
 $lang["form_userpresence_name"] = "Name";
 $lang["form_userpresence_ispresent"] = "Anwesend";
 $lang["userpresence_status_0"] = "Abwesend";
-$lang["userpresence_status_1"] = "Anwensend";
+$lang["userpresence_status_1"] = "Anwesend";

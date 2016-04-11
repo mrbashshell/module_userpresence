@@ -1,0 +1,30 @@
+.usertable {
+    vertical-align: middle !important;
+}
+.status_0 {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    background-color: red;
+    color: #fff;
+    min-width: 250px;
+    border-radius: 4px;
+}
+.status_0:hover {
+    color: #000;
+    text-decoration: none;
+}
+
+.status_1 {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    background-color: green;
+    color: #fff;
+    min-width: 250px;
+    border-radius: 4px;
+}
+.status_1:hover {
+    color: #000;
+    text-decoration: none;
+}
