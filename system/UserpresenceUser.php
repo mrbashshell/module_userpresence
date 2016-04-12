@@ -34,6 +34,17 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
      */
      private $strName = "";
 
+    /**
+     * @var string
+     * @tableColumn userpresence_user.user_shortname
+     * @tableColumnDatatype char254
+     * @fieldType text
+     * @fieldMandatory
+     * @addSearchIndex
+     * @templateExport
+     */
+    private $strShortName = "";
+
 
     /**
      * @var string
@@ -99,7 +110,17 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
         $this->strName = $strName;
     }
 
+    public function getStrShortName()
+    {
+        return $this->strShortName;
+    }
 
+    public function setStrShortName($strShortName)
+    {
+        $this->strShortName = $strShortName;
+    }
+
+    
     public function getIntIspresent()
     {
         return $this->intIspresent;

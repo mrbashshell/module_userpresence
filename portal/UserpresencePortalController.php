@@ -58,6 +58,7 @@ class UserpresencePortalController extends PortalController implements PortalInt
 
         $arrReturn = array(
             "name" => $objUser->getStrName(),
+            "shortname" => $objUser->getStrShortName(),
             "present" => $objUser->getIntIspresent(),
             "presentread" => $this->getLang("userpresence_status_".$objUser->getIntIspresent()),
             "lastchange" => dateToString(new Date($objUser->getIntLmTime())),
@@ -82,6 +83,7 @@ class UserpresencePortalController extends PortalController implements PortalInt
         foreach($arrUsers as $objOneUser) {
             $arrReturn[] = array(
                 "name" => $objOneUser->getStrName(),
+                "shortname" => $objOneUser->getStrShortName(),
                 "present" => $objOneUser->getIntIspresent(),
                 "presentread" => $this->getLang("userpresence_status_".$objOneUser->getIntIspresent()),
                 "lastchange" => dateToString(new Date($objOneUser->getIntLmTime())),
