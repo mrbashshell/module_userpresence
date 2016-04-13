@@ -8,13 +8,15 @@
                 <tr>
                     <th>Name</th>
                     <th>Status</th>
+
+
                 </tr>
             </thead>
             <tbody id="userpresencelist"></tbody>
         </table>
 
         <script type="text/javascript">
-            KAJONA.portal.loader.loadFile('/templates/default/css/userpresence.css‘);
+            KAJONA.portal.loader.loadFile('/templates/default/css/userpresence.css');
 
             var userpresence = {};
 
@@ -30,8 +32,8 @@
 
                             items.push(
                                 "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"'>" +
-                                "<td>"+val.name+"</td>" +
-                                "<td><a onclick='userpresence.changeStatus(this); return false;' href='#'>"+val.presentread+"</a></td>" +
+                                "<td class='usertable'>"+val.name+"</td>" +
+                                "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+"'>"+val.presentread+"</a></td>" +
                                 "</tr>"
                             );
                         });
@@ -56,8 +58,8 @@
 
                         $row.replaceWith(
                             "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"'>" +
-                            "<td>"+val.name+"</td>" +
-                            "<td><a onclick='userpresence.changeStatus(this); return false;' href='#'>"+val.presentread+"</a></td>" +
+                            "<td class='usertable'>"+val.name+"</td>" +
+                            "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+"'>"+val.presentread+"</a></td>" +
                             "</tr>"
                         );
                     });

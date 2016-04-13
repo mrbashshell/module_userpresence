@@ -5,12 +5,12 @@
 
         <table class="table table-striped">
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Ändern</th>
-                    <th>Letzte Änderung</th>
-                </tr>
+            <tr>
+                <th>Kürzel</th>
+                <th>Status</th>
+
+
+            </tr>
             </thead>
             <tbody id="userpresencelist"></tbody>
         </table>
@@ -32,10 +32,8 @@
 
                             items.push(
                                 "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"'>" +
-                                "<td class='usertable'>"+val.name+"</td>" +
-                                "<td class='usertable'>"+val.presentread+"</td>" +
-                                "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                                "<td class='usertable'>"+val.lastchange+"</td>" +
+                                "<td class='usertable'>"+val.shortname+"</td>" +
+                                "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+" smallstatus'>"+val.presentread+"</a></td>" +
                                 "</tr>"
                             );
                         });
@@ -60,10 +58,8 @@
 
                         $row.replaceWith(
                             "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"'>" +
-                            "<td class='usertable'>"+val.name+"</td>" +
-                            "<td class='usertable'>"+val.presentread+"</td>" +
-                            "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                            "<td class='usertable'>"+val.lastchange+"</td>" +
+                            "<td class='usertable'>"+val.shortname+"</td>" +
+                            "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+" smallstatus'>"+val.presentread+"</a></td>" +
                             "</tr>"
                         );
                     });
