@@ -91,6 +91,14 @@ class UserpresencePortalController extends PortalController implements PortalInt
             );
         }
 
+        $sortArray = array();
+        foreach($arrReturn as $key => $array) {
+            $sortArray[$key] = $array[2];
+        }
+
+        array_multisort($sortArray, SORT_ASC, SORT_NUMERIC, $arrReturn);
+
+
         ResponseObject::getInstance()->setStrResponseType(HttpResponsetypes::STR_TYPE_JSON);
         return json_encode($arrReturn);
     }
