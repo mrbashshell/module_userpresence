@@ -53,6 +53,14 @@ class UserpresencePortalController extends PortalController implements PortalInt
 
         if($objUser instanceof UserpresenceUser) {
             $objUser->setIntIspresent($this->getParam("present") == "1" ? "1" : "0");
+
+            if($objUser->getIntIspresent() == 0) {
+                $objUser->setIntNocalls(0);
+            }
+            else {
+                $objUser->setIntNocalls(1);
+            }
+
             $objUser->updateObjectToDb();
         }
 
@@ -61,6 +69,8 @@ class UserpresencePortalController extends PortalController implements PortalInt
             "shortname" => $objUser->getStrShortName(),
             "present" => $objUser->getIntIspresent(),
             "presentread" => $this->getLang("userpresence_status_".$objUser->getIntIspresent()),
+            "nocalls" => $objUser->getIntNocalls(),
+            "nocallsread" => $this->getLang("userpresence_nocalls_".$objUser->getIntNocalls()),
             "lastchange" => dateToString(new Date($objUser->getIntLmTime())),
             "systemid" => $objUser->getSystemid()
         );
@@ -69,6 +79,40 @@ class UserpresencePortalController extends PortalController implements PortalInt
         return json_encode($arrReturn);
 
     }
+
+    /**
+     * @permissions view
+     * @xml
+     */
+    protected function actionSetCallstatus()
+    {
+        $objUser = Objectfactory::getInstance()->getObject($this->getSystemid());
+
+        if($objUser instanceof UserpresenceUser) {
+
+            if($objUser->getIntIspresent() == 1) {
+                $objUser->setIntNocalls($this->getParam("nocalls") == "1" ? "1" : "0");
+                $objUser->updateObjectToDb();
+            }
+        }
+
+        $arrReturn = array(
+            "name" => $objUser->getStrName(),
+            "shortname" => $objUser->getStrShortName(),
+            "present" => $objUser->getIntIspresent(),
+            "presentread" => $this->getLang("userpresence_status_".$objUser->getIntIspresent()),
+            "nocalls" => $objUser->getIntNocalls(),
+            "nocallsread" => $this->getLang("userpresence_nocalls_".$objUser->getIntNocalls()),
+            "lastchange" => dateToString(new Date($objUser->getIntLmTime())),
+            "systemid" => $objUser->getSystemid()
+        );
+
+        ResponseObject::getInstance()->setStrResponseType(HttpResponsetypes::STR_TYPE_JSON);
+        return json_encode($arrReturn);
+
+    }
+
+
 
     /**
      * @permissions view
@@ -86,19 +130,13 @@ class UserpresencePortalController extends PortalController implements PortalInt
                 "shortname" => $objOneUser->getStrShortName(),
                 "present" => $objOneUser->getIntIspresent(),
                 "presentread" => $this->getLang("userpresence_status_".$objOneUser->getIntIspresent()),
+                "nocalls" => $objOneUser->getIntNocalls(),
+                "nocallsread" => $this->getLang("userpresence_status_".$objOneUser->getIntNocalls()),
                 "lastchange" => dateToString(new Date($objOneUser->getIntLmTime())),
                 "systemid" => $objOneUser->getSystemid()
             );
         }
-
-        $sortArray = array();
-        foreach($arrReturn as $key => $array) {
-            $sortArray[$key] = $array[2];
-        }
-
-        array_multisort($sortArray, SORT_ASC, SORT_NUMERIC, $arrReturn);
-
-
+        
         ResponseObject::getInstance()->setStrResponseType(HttpResponsetypes::STR_TYPE_JSON);
         return json_encode($arrReturn);
     }

@@ -9,6 +9,7 @@
                     <th>Name</th>
                     <th>Status</th>
                     <th>Ändern</th>
+                    <th>Anrufe</th>
                     <th>Letzte Änderung</th>
                 </tr>
             </thead>
@@ -22,22 +23,35 @@
 
             $(function(){
 
-                //register a default loader of items
+                userpresence.renderEntry = function( val, row ) {
+
+                    var objEntry =
+                        "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
+                        "<td class='usertable'>"+val.name+"</td>" +
+                        "<td class='usertable'>"+val.presentread+"</td>" +
+                        "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+"'>"+val.presentread+"</a></td>" +
+                        "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='status_"+val.nocalls+"'>"+val.nocallsread+"</a></td>" +
+                        "<td class='usertable'>"+val.lastchange+"</td>" +
+                        "</tr>";
+
+                    if(row) {
+                        row.replaceWith(objEntry);
+                    }
+                    else {
+                        return objEntry;
+                    }
+
+                };
+
+
+                //register a default loader of items - das hier erzeugt beim ersten Aufruf die Liste und alle 3000 ms
                 userpresence.loadItems = function(bitNoRegister) {
 
                     $.getJSON( KAJONA_WEBPATH+"/xml.php?module=userpresence&action=getallusers", function( data ) {
 
                         var items = [];
                         $.each( data, function( key, val ) {
-
-                            items.push(
-                                "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"'>" +
-                                "<td class='usertable'>"+val.name+"</td>" +
-                                "<td class='usertable'>"+val.presentread+"</td>" +
-                                "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                                "<td class='usertable'>"+val.lastchange+"</td>" +
-                                "</tr>"
-                            );
+                            items.push(userpresence.renderEntry(val));
                         });
 
                         $('#userpresencelist').html(items.join( "" ));
@@ -47,7 +61,10 @@
                 };
                 userpresence.loadItems();
 
-                //on click handler
+
+
+
+                //on click handler 1
                 userpresence.changeStatus = function(objRow) {
                     var $row = $(objRow).closest('tr');
 
@@ -57,17 +74,24 @@
                     };
 
                     $.post(KAJONA_WEBPATH+"/xml.php?module=userpresence&action=setstatus", dataObj).success(function(val) {
-
-                        $row.replaceWith(
-                            "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"'>" +
-                            "<td class='usertable'>"+val.name+"</td>" +
-                            "<td class='usertable'>"+val.presentread+"</td>" +
-                            "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                            "<td class='usertable'>"+val.lastchange+"</td>" +
-                            "</tr>"
-                        );
+                        userpresence.renderEntry(val, $row);
                     });
                 };
+
+                //on click handler 2
+                userpresence.changeCallstatus = function(objRow) {
+                    var $row = $(objRow).closest('tr');
+
+                    var dataObj = {
+                        systemid : $row.data("userid"),
+                        nocalls : $row.data("nocalls") == "1" ? "0" : "1"
+                    };
+
+                    $.post(KAJONA_WEBPATH+"/xml.php?module=userpresence&action=setcallstatus", dataObj).success(function(val) {
+                        userpresence.renderEntry(val, $row);
+                    });
+                };
+
 
             });
 

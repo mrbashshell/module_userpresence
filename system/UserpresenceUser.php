@@ -31,6 +31,7 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
      * @fieldMandatory
      * @addSearchIndex
      * @templateExport
+     * @listOrder ASC
      */
      private $strName = "";
 
@@ -45,6 +46,23 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
      */
     private $strShortName = "";
 
+    /**
+     * @var string
+     * @tableColumn userpresence_user.user_comment
+     * @tableColumnDatatype char254
+     * @fieldType text
+     * @addSearchIndex
+     * @templateExport
+     */
+    private $strComment = "";
+
+    /**
+     * @var string
+     * @tableColumn userpresence_user.user_nocalls
+     * @tableColumnDatatype int
+     * @fieldType toggleonoff
+     */
+    private $intNocalls = "";
 
     /**
      * @var string
@@ -120,7 +138,26 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
         $this->strShortName = $strShortName;
     }
 
-    
+    public function getStrComment()
+    {
+        return $this->strComment;
+    }
+
+    public function setStrComment($strComment)
+    {
+        $this->strComment = $strComment;
+    }
+
+    public function getIntNocalls()
+    {
+        return $this->intNocalls;
+    }
+
+    public function setIntNocalls($intNocalls)
+    {
+        $this->intNocalls = $intNocalls;
+    }
+
     public function getIntIspresent()
     {
         return $this->intIspresent;
