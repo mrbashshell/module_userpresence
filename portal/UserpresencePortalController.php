@@ -131,7 +131,7 @@ class UserpresencePortalController extends PortalController implements PortalInt
                 "present" => $objOneUser->getIntIspresent(),
                 "presentread" => $this->getLang("userpresence_status_".$objOneUser->getIntIspresent()),
                 "nocalls" => $objOneUser->getIntNocalls(),
-                "nocallsread" => $this->getLang("userpresence_status_".$objOneUser->getIntNocalls()),
+                "nocallsread" => $this->getLang("userpresence_nocalls_".$objOneUser->getIntNocalls()),
                 "lastchange" => dateToString(new Date($objOneUser->getIntLmTime())),
                 "systemid" => $objOneUser->getSystemid()
             );
