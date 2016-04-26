@@ -3,9 +3,13 @@
 <userpresence_list>
     <div class="userpresenceList">
 
-        <table class="table table-striped">
-            <tbody id="userpresencelist"></tbody>
-        </table>
+
+
+
+
+            <div id="userpresencelist"></div>
+
+
 
         <script type="text/javascript">
             KAJONA.portal.loader.loadFile('/templates/default/css/userpresence.css');
@@ -15,20 +19,11 @@
             $(function(){
 
                 userpresence.renderEntry = function( val, row ) {
-/*
+
                     var objEntry =
-                        "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
-                        "<td class='usertable'>"+val.name+" ("+val.shortname+")</td>" +
-                        "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                        "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='statusbutton callstatus_"+val.nocalls+"'>"+val.nocallsread+"</a></td>" +
-                        "</tr>";
-*/
-                    var objEntry =
-                        "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
-                        "<td class='usertable'>"+val.name+" ("+val.shortname+")</td>" +
-                        "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                        "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='statusbutton callstatus_"+val.nocalls+"'>"+val.nocallsread+"</a></td>" +
-                        "</tr>";
+                        "<div class="divwrapper" id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
+                        "<div>   <a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton status_"+val.present+"'> ("+val.shortname+") "+val.presentread+"</a>    </div>"
+                        "</div>";
 
 
 

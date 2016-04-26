@@ -4,14 +4,6 @@
     <div class="userpresenceList">
 
         <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Anrufe</th>
-                    <th>Letzte Änderung</th>
-                </tr>
-            </thead>
             <tbody id="userpresencelist"></tbody>
         </table>
 
@@ -23,14 +15,22 @@
             $(function(){
 
                 userpresence.renderEntry = function( val, row ) {
-
+/*
+                    var objEntry =
+                        "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
+                        "<td class='usertable'>"+val.name+" ("+val.shortname+")</td>" +
+                        "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton status_"+val.present+"'>"+val.presentread+"</a></td>" +
+                        "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='statusbutton callstatus_"+val.nocalls+"'>"+val.nocallsread+"</a></td>" +
+                        "</tr>";
+*/
                     var objEntry =
                         "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
                         "<td class='usertable'>"+val.name+" ("+val.shortname+")</td>" +
                         "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton status_"+val.present+"'>"+val.presentread+"</a></td>" +
                         "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='statusbutton callstatus_"+val.nocalls+"'>"+val.nocallsread+" <i class='fa fa-phone-square'></i></a></td>" +
-                        "<td class='usertable'>"+val.lastchange+"</td>" +
                         "</tr>";
+
+
 
                     if(row) {
                         row.replaceWith(objEntry);
