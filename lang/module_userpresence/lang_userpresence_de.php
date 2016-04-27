@@ -6,7 +6,7 @@
 
 
 //editable entries
-$lang["modul_titel"]                     = "Anwesenheitsregister";
+$lang["modul_titel"]                     = "Anwesenheitsliste";
 $lang["form_userpresence_name"] = "Name";
 $lang["form_userpresence_shortname"] = "Kürzel";
 $lang["form_userpresence_ispresent"] = "Anwesend";
