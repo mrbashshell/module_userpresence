@@ -71,6 +71,7 @@ class UserpresencePortalController extends PortalController implements PortalInt
             "presentread" => $this->getLang("userpresence_status_".$objUser->getIntIspresent()),
             "nocalls" => $objUser->getIntNocalls(),
             "nocallsread" => $this->getLang("userpresence_nocalls_".$objUser->getIntNocalls()),
+            "comment" => $objUser->getStrComment(),
             "lastchange" => dateToString(new Date($objUser->getIntLmTime())),
             "systemid" => $objUser->getSystemid()
         );
@@ -103,6 +104,7 @@ class UserpresencePortalController extends PortalController implements PortalInt
             "presentread" => $this->getLang("userpresence_status_".$objUser->getIntIspresent()),
             "nocalls" => $objUser->getIntNocalls(),
             "nocallsread" => $this->getLang("userpresence_nocalls_".$objUser->getIntNocalls()),
+            "comment" => $objUser->getStrComment(),
             "lastchange" => dateToString(new Date($objUser->getIntLmTime())),
             "systemid" => $objUser->getSystemid()
         );
@@ -132,6 +134,7 @@ class UserpresencePortalController extends PortalController implements PortalInt
                 "presentread" => $this->getLang("userpresence_status_".$objOneUser->getIntIspresent()),
                 "nocalls" => $objOneUser->getIntNocalls(),
                 "nocallsread" => $this->getLang("userpresence_nocalls_".$objOneUser->getIntNocalls()),
+                "comment" => $objOneUser->getStrComment(),
                 "lastchange" => dateToString(new Date($objOneUser->getIntLmTime())),
                 "systemid" => $objOneUser->getSystemid()
             );

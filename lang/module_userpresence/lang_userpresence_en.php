@@ -11,3 +11,7 @@ $lang["form_userpresence_shortname"] = "Shortname";
 $lang["form_userpresence_ispresent"] = "ispresent";
 $lang["userpresence_status_0"] = "Away";
 $lang["userpresence_status_1"] = "Available";
+$lang["form_userpresence_comment"] = "Comment";
+$lang["form_userpresence_nocalls"] = "Calls";
+$lang["userpresence_nocalls_0"] = "No Calls";
+$lang["userpresence_nocalls_1"] = "Calls permitted";

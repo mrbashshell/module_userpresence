@@ -9,6 +9,7 @@
                     <th>Name</th>
                     <th>Status</th>
                     <th>Anrufe</th>
+                    <th>Bemerkung</th>
                     <th>Letzte Änderung</th>
                 </tr>
             </thead>
@@ -28,7 +29,19 @@
                         "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
                         "<td class='usertable'>"+val.name+" ("+val.shortname+")</td>" +
                         "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                        "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='statusbutton callstatus_"+val.nocalls+"'>"+val.nocallsread+" <i class='fa fa-phone-square'></i></a></td>" +
+                        "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='statusbutton callstatus_"+val.nocalls+"'>"+val.nocallsread;
+
+                    if(val.nocalls==0) {
+                        objEntry = objEntry + " <span class='fa-stack smallicon'> <i class='fa fa-phone fa-stack-1x'></i><i class='fa fa-ban fa-stack-2x'></i></span></a></td>";
+                    }
+                    else {
+                        objEntry = objEntry + " <i class='fa fa-phone fa-lg'></i></a></td>";
+                    }
+
+
+
+                    objEntry = objEntry +
+                        "<td class='usertable'><a href='?admin=1&module=userpresence&action=edit&systemid="+val.systemid+"' class='commentlink'>"+val.comment+"<i class='fa fa-pencil'></i></a></td>" +
                         "<td class='usertable'>"+val.lastchange+"</td>" +
                         "</tr>";
 

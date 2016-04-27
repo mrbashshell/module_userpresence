@@ -8,6 +8,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Status</th>
+                    <th>Anrufe</th>
                 </tr>
             </thead>
             <tbody id="userpresencelist"></tbody>
@@ -24,9 +25,20 @@
 
                     var objEntry =
                         "<tr id='" + val.systemid + "' data-userid='" + val.systemid + "' data-present='"+val.present+"' data-nocalls='"+val.nocalls +"' >" +
-                        "<td class='usertable'>"+val.name+" ("+val.shortname+")</td>" +
-                        "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton status_"+val.present+"'>"+val.presentread+"</a></td>" +
-                        "</tr>";
+                        "<td class='usertable'>"+val.shortname+"</td>" +
+                        "<td class='usertable'><a onclick='userpresence.changeStatus(this); return false;' href='#' class='statusbutton smallstatus status_"+val.present+"'>"+val.presentread+"</a></td>" +
+                        "<td class='usertable'><a onclick='userpresence.changeCallstatus(this); return false;' href='#' class='statusbutton smallcallstatus callstatus_"+val.nocalls+"'>";
+
+                    if(val.nocalls==0) {
+                        objEntry = objEntry + " <span class='fa-stack smallicon'> <i class='fa fa-phone fa-stack-1x'></i><i class='fa fa-ban fa-stack-2x'></i></span></a></td>";
+                    }
+                    else {
+                        objEntry = objEntry + " <i class='fa fa-phone fa-lg'></i></a></td>";
+                    }
+
+
+                    objEntry = objEntry + "</tr>";
+
 
                     if(row) {
                         row.replaceWith(objEntry);

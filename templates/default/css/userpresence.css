@@ -1,49 +1,87 @@
-.usertable {
-    vertical-align: middle !important;
-
-}
-.tabletview {
-    padding:4px  !important;
-}
-
-.status_0 {
-    display: inline-block;
-    padding: 10px;
-    text-align: center;
-    background-color: red;
-    color: #fff;
-    min-width: 250px;
-    border-radius: 4px;
-}
-.status_0:hover {
-    color: #c0c0c0;
-    text-decoration: none;
-}
-
-.status_1 {
-    display: inline-block;
-    padding: 10px;
-    text-align: center;
-    background-color: green;
-    color: #fff;
-    min-width: 250px;
-    border-radius: 4px;
-}
-.status_1:hover {
-    color: #c0c0c0;
-    text-decoration: none;
-}
-
-.smallstatus {
-    padding: 2px;
-    min-width: 150px;
-}
-
 body {
     -webkit-user-select: none;  /* Chrome all / Safari all */
     -moz-user-select: none;     /* Firefox all */
     -ms-user-select: none;      /* IE 10+ */
     user-select: none;          /* Likely future */
 }
+
+.usertable {
+    vertical-align: middle !important;
+    padding:1px !important;
+}
+
+.commentlink {
+    color: #000;
+    padding-left: 3px;
+}
+
+.tabletview {
+    padding:4px  !important;
+}
+
+.statusbutton {
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    color: #fff;
+    min-width: 200px;
+    border-radius: 4px;
+    background-color: grey; /* nur für Entwicklung, wird durch Status überschrieben */
+}
+.statusbutton:hover {
+    color: #c0c0c0;
+    text-decoration: none;
+}
+
+
+.statustile {
+    font-weight: bold;
+    font-size: 20px;
+    float: left;
+    display: inline-block;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+    color: #fff;
+    width: 100px;
+    height:80px;
+    border-radius: 4px;
+    background-color: grey; /* nur für Entwicklung, wird durch Status überschrieben */
+}
+.statustile:hover {
+    color: #c0c0c0;
+    text-decoration: none;
+}
+
+
+.status_0 {
+    background-color: red;
+}
+.status_1 {
+    background-color: green;
+}
+
+.callstatus_0 {
+    background-color: #d62728;
+    min-width: 160px;
+}
+
+.callstatus_1 {
+    background-color: #5b9909;
+    min-width: 160px;
+}
+
+.smallicon {
+    font-size: 0.7em;
+}
+.smallstatus {
+    padding: 1px;
+    min-width: 100px;
+}
+.smallcallstatus {
+    padding: 1px;
+    min-width: 60px;
+}
+
 
 

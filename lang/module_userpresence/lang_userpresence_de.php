@@ -12,7 +12,6 @@ $lang["form_userpresence_shortname"] = "Kürzel";
 $lang["form_userpresence_ispresent"] = "Anwesend";
 $lang["userpresence_status_0"] = "Abwesend";
 $lang["userpresence_status_1"] = "Anwesend";
-
 $lang["form_userpresence_comment"] = "Kommentar";
 $lang["form_userpresence_nocalls"] = "Anrufe";
 $lang["userpresence_nocalls_0"] = "Keine Anrufe";
