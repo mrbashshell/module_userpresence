@@ -63,7 +63,7 @@
                         $('#userpresencelist').html(items.join( "" ));
                     });
 
-                    window.setTimeout(userpresence.loadItems, 3000);
+                    window.setTimeout(userpresence.loadItems, 300000);
                 };
                 userpresence.loadItems();
 

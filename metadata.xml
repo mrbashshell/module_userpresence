@@ -5,8 +5,8 @@
     >
     <title>userpresence</title>
     <description></description>
-    <version>0.1</version>
-    <author>sidler@mulchprod.de</author>
+    <version>1.0</version>
+    <author>sidler@mulchprod.de and STB</author>
     <type>MODULE</type>
     <providesInstaller>TRUE</providesInstaller>
     <requiredModules>

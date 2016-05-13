@@ -84,7 +84,7 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
      */
     public function getStrIcon()
     {
-        return "icon_dot";
+        return "icon_user";
     }
 
     /**

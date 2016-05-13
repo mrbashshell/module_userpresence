@@ -122,7 +122,7 @@ class UserpresencePortalController extends PortalController implements PortalInt
      */
     protected function actionGetAllUsers()
     {
-        $arrUsers = UserpresenceUser::getObjectList();
+        $arrUsers = UserpresenceUser::getObjectListFiltered();
 
         $arrReturn = array();
         /** @var UserpresenceUser $objOneUser */
