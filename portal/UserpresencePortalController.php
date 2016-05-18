@@ -127,6 +127,11 @@ class UserpresencePortalController extends PortalController implements PortalInt
         $arrReturn = array();
         /** @var UserpresenceUser $objOneUser */
         foreach($arrUsers as $objOneUser) {
+
+            if ($objOneUser->getIntRecordStatus() == 0) {
+                continue;
+            }
+            
             $arrReturn[] = array(
                 "name" => $objOneUser->getStrName(),
                 "shortname" => $objOneUser->getStrShortName(),
