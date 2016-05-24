@@ -15,3 +15,4 @@ $lang["form_userpresence_comment"] = "Comment";
 $lang["form_userpresence_nocalls"] = "Calls";
 $lang["userpresence_nocalls_0"] = "No Calls";
 $lang["userpresence_nocalls_1"] = "Calls permitted";
+$lang["form_userpresence_sorting"] = "Manual Sorting";

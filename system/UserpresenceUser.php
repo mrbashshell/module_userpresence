@@ -22,6 +22,15 @@ use Kajona\System\System\ModelInterface;
 class UserpresenceUser extends Model implements ModelInterface, AdminListableInterface
 {
 
+    /**
+     *
+     * @var string
+     * @tableColumn userpresence_user.user_sorting
+     * @tableColumnDatatype int
+     * @fieldType text
+     * @listOrder DESC
+     */
+    private $intSorting = "";
 
     /**
      * @var string
@@ -74,6 +83,9 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
 
 
 
+
+
+
     /**
      * Returns the icon the be used in lists.
      * Please be aware, that only the filename should be returned, the wrapping by getImageAdmin() is
@@ -117,7 +129,16 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
         return uniStrTrim($this->strName, 150);
     }
 
+    public function getIntSorting()
+    {
+        return $this->intSorting;
+    }
 
+    public function setIntSorting($intSorting)
+    {
+        $this->intSorting = $intSorting;
+    }
+    
     public function getStrName()
     {
         return $this->strName;
@@ -167,6 +188,7 @@ class UserpresenceUser extends Model implements ModelInterface, AdminListableInt
     {
         $this->intIspresent = $intIspresent;
     }
+
 
 
 }

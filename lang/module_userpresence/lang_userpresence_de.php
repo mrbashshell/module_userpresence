@@ -16,3 +16,4 @@ $lang["form_userpresence_comment"] = "Kommentar";
 $lang["form_userpresence_nocalls"] = "Anrufe";
 $lang["userpresence_nocalls_0"] = "Keine Anrufe";
 $lang["userpresence_nocalls_1"] = "Anrufe erlaubt";
+$lang["form_userpresence_sorting"] = "Manuelle Sortierung";
